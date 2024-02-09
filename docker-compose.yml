@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - 8090:5432
+    environment:
+      - ENV_VARIABLE=value
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=ziewilliamscoulibaly@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=postgres
+    ports:
+      - 8091:80
+  web:
+    build: .
+    ports:
+      - 8092:8080
+    depends_on:
+      - pgadmin
+    container_name: ic-webapp:1.0
+    environment:
+      - ODOO_URL=http://localhost:8092
+      - PGADMIN_URL=http://localhost:8091
+   

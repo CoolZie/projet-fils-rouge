@@ -1,0 +1,8 @@
+FROM python:3.6-alpine
+WORKDIR /opt
+COPY . .
+RUN pip install Flask
+ENV ODOO_URL=ODOO_URL
+ENV PGADMIN_URL=PGADMIN_URL
+EXPOSE 8080
+ENTRYPOINT ["python", "app.py"]
