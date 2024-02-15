@@ -35,6 +35,7 @@ pipeline {
               sh 'docker rm -f review-$GIT_COMMIT_SHORT-ic-webapp'
               sh 'docker image rm -f $GIT_COMMIT_SHORT-ic-webapp'
               sh 'rm -rf projet-fils-rouge'
+               
            }
         }
         
