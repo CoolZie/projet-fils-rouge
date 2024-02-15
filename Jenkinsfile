@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build image') {
             steps {
-                sh 'docker build -t ic-webapp projet-fils-rouge/.'
+                sh 'docker build -t .'
             }
         }
          stage('test image') {
