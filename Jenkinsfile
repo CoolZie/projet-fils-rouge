@@ -34,6 +34,7 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no coulibaly@192.168.1.100 docker login -u $DOCKER_CREDS_USR -p $DOCKER_CREDS_PSW'
                     sh 'ssh -o StrictHostKeyChecking=no coulibaly@192.168.1.100 docker run --rm -p 80:8080 -d --name test-ic-webapp -e PGADMIN_URL=https://www.pgadmin.org/ -e ODOO_URL=https://www.odoo.com/fr_FR coolzie/ic-webapp:latest'
                     sleep 5
+                     
                     sh 'ssh -o StrictHostKeyChecking=no coulibaly@192.168.1.100 docker ps | grep test-ic-webapp'
                 }
             }
