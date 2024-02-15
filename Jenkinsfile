@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('Build image') {
             steps {
-                sh 'git clone https://github.com/CoolZie/projet-fils-rouge.git'
                 sh 'docker build -t ic-webapp projet-fils-rouge/.'
             }
         }
