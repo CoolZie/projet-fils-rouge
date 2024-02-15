@@ -6,7 +6,7 @@ pipeline {
                     script: "printf \$(git rev-parse --short ${GIT_COMMIT})",
                     returnStdout: true
             )
-            DEPLOY_HOST = 192.168.1.100
+            DEPLOY_HOST = '192.168.1.100'
             IMAGE_NAME = 'ic-webapp'
             }
     stages {
